@@ -3,11 +3,11 @@ const route = express();
 
 const path = require('path');
 const bodyParser = require('body-parser');
-const urlSchema = require('./../db/urlModel');
+const urlSchema = require('../db/urlModel');
 // const urlschema = require('./../db/urlModel');
 
 route.get('/', (req, res)=>{
-    res.sendFile(path.join(__dirname, './../public/templates/index.html'));
+    res.sendFile(path.join(__dirname, './../../public/templates/index.html'));
 })
 
 route.post('/', async(req, res) => {
@@ -17,7 +17,7 @@ route.post('/', async(req, res) => {
 
     let urlObj = new urlSchema(obj);
     await urlObj.save();
-    res.sendFile(path.join(__dirname, './../public/templates/confirmation.html'));
+    res.sendFile(path.join(__dirname, './../../public/templates/index.html'));
 })
 
 
@@ -25,7 +25,7 @@ route.get('/get/:newURL', (req, res) => {
     urlSchema.find({newURL: req.params.newURL}, (err, data)=>{
         
         if(err){
-            // res.sendFile(path.join(__dirname, './../public/templates/error.html'));
+            res.sendFile(path.join(__dirname, './../../public/templates/error.html'));
             return console.log(err);
         }
         
