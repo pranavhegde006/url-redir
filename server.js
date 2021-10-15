@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const connectDB = require('./server/db/connection');
+const connectDB = require('./server/db/connection/connection');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: true }));

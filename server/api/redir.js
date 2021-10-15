@@ -3,12 +3,13 @@ const route = express();
 
 const path = require('path');
 const bodyParser = require('body-parser');
-const urlSchema = require('../db/urlModel');
-// const urlschema = require('./../db/urlModel');
+const urlSchema = require('../db/models/urlModel');
 
 route.get('/', (req, res)=>{
     res.sendFile(path.join(__dirname, './../../public/templates/index.html'));
 })
+
+
 
 route.post('/', async(req, res) => {
     let obj = {};
@@ -21,19 +22,16 @@ route.post('/', async(req, res) => {
 })
 
 
-route.get('/get/:newURL', (req, res) => {
+route.get('/get/:newURL', async (req, res) => {
     urlSchema.find({newURL: req.params.newURL}, (err, data)=>{
-        
         if(err){
-            res.sendFile(path.join(__dirname, './../../public/templates/error.html'));
-            return console.log(err);
+            throw err;
         }
-        
-        if(!data){
-            return res.sendFile(path.join(__dirname, './../public/templates/error.html'));
-        }
-        
         else{
+            if(data.length == 0){
+                res.sendFile(path.join(__dirname, './../../public/templates/error.html'));
+            }
+            else
             res.redirect(data[0].originalURL);
         }
     })
@@ -41,4 +39,6 @@ route.get('/get/:newURL', (req, res) => {
 
 
 module.exports = route;
+
+
 
