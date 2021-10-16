@@ -8,6 +8,9 @@ app.use(express.json({extended: false}));
 
 connectDB();
 
+app.use(express.static('public'));
+// app.use('/images', express.static('images')); 
+
 app.use('/', require('./server/api/redir'));
 
 app.use('/api', require('./server/api/api'));

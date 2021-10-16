@@ -2,18 +2,50 @@
 <html>
     <head>
         <title>URL redir</title>
-        <link rel="icon" type="image/png" href="./../assets/icon.png" sizes="16x16"/>
-        <!-- <link rel="icon" type="image/png" href="https://example.com/favicon.png"/> -->
+        <link rel="icon" type="image/png" href="./../assets/new.png" sizes="16x16"/>
+        <link rel="stylesheet" type="text/css" href="./../styles/index.css" />
     </head>
-    <body>
-        <form action="" method="POST">
-            <label for="originalURL">Enter the URL you want to redirect: </label>
-            <input type="text" name="originalURL" required><br/>
-        
-            <label for="newURL">Enter your customized URL: </label>
-            <input type="text" name="newURL" required><br/>
 
-            <button type="submit" name="submitButton">Customize my URL</button><br/>
+    <body class="align" action="" method="POST">
+        <h1 class="heading"> URL Redir </h1>
+        <form>
+            
+        
+            <div class="form__field">
+                <h3>Enter your URL:</h3>
+                <input type="text" name="originalURL" class="form__input" required>
+            </div>
+            
+        
+            <div class="form__field">
+                <h3>Enter your alias:</h3>
+                <input type="text" name="newURL" class="form__input" required>
+            </div><br/>
+            
+            <button class="form__input" type="submit">Get my short URL!</button>
         </form>
-    </body>
+      
+      
+      </body>
+
+
+
+    <!-- <body>
+
+        <form id="form" action="" method="POST">
+            <p id="formtext">
+                <label for="originalURL">Enter the URL you want to redirect: </label>
+                <input type="text" name="originalURL" required><br/>
+        
+                <label for="newURL">Enter your customized URL: </label>
+                <input type="text" name="newURL" required><br/>
+
+                <button type="submit" name="submitButton">Customize my URL</button><br/>
+            </p>
+            
+        </form>
+    </body> -->
 </html>
+
+
+

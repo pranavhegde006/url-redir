@@ -22,6 +22,7 @@ route.post('/', async(req, res) => {
 })
 
 
+
 route.get('/get/:newURL', async (req, res) => {
     urlSchema.find({newURL: req.params.newURL}, (err, data)=>{
         if(err){
@@ -31,8 +32,9 @@ route.get('/get/:newURL', async (req, res) => {
             if(data.length == 0){
                 res.sendFile(path.join(__dirname, './../../public/templates/error.html'));
             }
-            else
-            res.redirect(data[0].originalURL);
+            else{
+                res.redirect(data[0].originalURL);
+            }
         }
     })
 })
