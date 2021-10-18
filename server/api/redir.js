@@ -6,19 +6,30 @@ const bodyParser = require('body-parser');
 const urlSchema = require('../db/models/urlModel');
 
 route.get('/', (req, res)=>{
-    res.sendFile(path.join(__dirname, './../../public/templates/index.html'));
+    res.render(path.join(__dirname, './../../public/templates/index.html'), {name: ''});
 })
 
 
 
-route.post('/', async(req, res) => {
+route.post('/', (req, res) => {
     let obj = {};
     obj.originalURL = req.body.originalURL;
     obj.newURL = req.body.newURL;
-
-    let urlObj = new urlSchema(obj);
-    await urlObj.save();
-    res.sendFile(path.join(__dirname, './../../public/templates/index.html'));
+    urlSchema.find({newURL: req.body.newURL}, (err, data)=>{
+        if(err){
+            throw err;
+        }
+        else{
+            if(data.length == 0){
+                let urlObj = new urlSchema(obj);
+                urlObj.save();
+                res.render(path.join(__dirname,'./../../public/templates/index.html'), {name: "Alias successfully created!"});
+            }
+            else{
+                res.render(path.join(__dirname, './../../public/templates/index.html'), {name: "ALIAS already in use. \nPlease enter a different alias!"})
+            }
+        }
+    })
 })
 
 

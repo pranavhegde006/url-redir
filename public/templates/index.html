@@ -4,29 +4,39 @@
         <title>URL redir</title>
         <link rel="icon" type="image/png" href="./../assets/new.png" sizes="16x16"/>
         <link rel="stylesheet" type="text/css" href="./../styles/index.css" />
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'>
     </head>
 
-    <body class="align" action="" method="POST">
-        <h1 class="heading"> URL Redir </h1>
-        <form>
-            
+    <body>
         
-            <div class="form__field">
-                <h3>Enter your URL:</h3>
-                <input type="text" name="originalURL" class="form__input" required>
-            </div>
-            
+        <h1> URL Redir </h1>
         
-            <div class="form__field">
-                <h3>Enter your alias:</h3>
-                <input type="text" name="newURL" class="form__input" required>
-            </div><br/>
+        <div class="box"></div>
+            <form action="/" method="POST">
+                
+                <div class="originalURL">
+                    <label name="originalURL">Enter your full URL:</label>
+                    <input type="text" name="originalURL" class="form__input" required><br/>
+                </div>
+
+                <div class="newURL">
+                    <label name="newURL">Enter your custom alias:</label>
+                    <input type="text" name="newURL" class="form__input" required><br/>    
+                </div>
+                
+                <button class="btn" type="submit">Get my short URL!</button>
+
+            </form>
             
-            <button class="form__input" type="submit">Get my short URL!</button>
-        </form>
+            <h1 class="message">
+                <%= name %>
+            </h1>
+
+
+        </div>
+        
       
-      
-      </body>
+    </body>
 
 
 
