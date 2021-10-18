@@ -1,4 +1,4 @@
-# URL Redir <img href="https://github.com/pranavhegde006/url-redir/blob/main/public/assets/new.png" size="16x16">
+# URL Redir ↪
 ## A simple URL Redirection service.
 (UI to be added)
 
