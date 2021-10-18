@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>URL redir</title>
+        <title>URL Redir</title>
         <link rel="icon" type="image/png" href="./../assets/new.png" sizes="16x16"/>
         <link rel="stylesheet" type="text/css" href="./../styles/index.css" />
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'>
@@ -10,21 +10,24 @@
     <body>
         
         <h1> URL Redir </h1>
+        <h2>
+            A simple URL redirection service.<br/>
+        </h2>
         
         <div class="box"></div>
             <form action="/" method="POST">
                 
                 <div class="originalURL">
                     <label name="originalURL">Enter your full URL:</label>
-                    <input type="text" name="originalURL" class="form__input" required><br/>
+                    <input placeholder="https://url-redir.herokuapp.com" type="text" name="originalURL" class="form__input" required><br/>
                 </div>
 
                 <div class="newURL">
                     <label name="newURL">Enter your custom alias:</label>
-                    <input type="text" name="newURL" class="form__input" required><br/>    
+                    <input placeholder="url-redir" type="text" name="newURL" class="form__input" required><br/>    
                 </div>
                 
-                <button class="btn" type="submit">Get my short URL!</button>
+                <button class="btn" type="submit">LESSGOO!</button>
 
             </form>
             
@@ -34,8 +37,23 @@
 
 
         </div>
+        <br/>
         
-      
+        <h3>
+            Salient features:
+            <ul>
+                <li>You can route to your boring long URLs via our custom aliases.</li>
+                <li>Just use <a href="https://url-redir.herokuapp.com/get/url-redir">https://url-redir.herokuapp.com/get/{your-alias}</a> to go to your original URL.</li><br/>
+                <a href="https://url-redir.herokuapp.com/get/url-redir"><small>https://url-redir.herokuapp.com/get/url-redir</small>
+            </ul>
+        </h3>
+        <small>
+            shorter domain and authentication in production.
+        </small>
+        <p>
+            A project in public interest by <a href="https://github.com/pranavhegde006">Pranav Hegde</a>. <br/>
+            Contribute your part to the project <a href="https://github.com/pranavhegde006/url-redir">here</a>.
+        </p>
     </body>
 
 

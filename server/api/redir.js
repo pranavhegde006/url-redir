@@ -1,6 +1,6 @@
 const express = require('express');
 const route = express();
-
+const validURL = require('valid-url');
 const path = require('path');
 const bodyParser = require('body-parser');
 const urlSchema = require('../db/models/urlModel');
@@ -15,6 +15,11 @@ route.post('/', (req, res) => {
     let obj = {};
     obj.originalURL = req.body.originalURL;
     obj.newURL = req.body.newURL;
+
+    if(validURL.isUri(obj.originalURL) == undefined){
+        res.render(path.join(__dirname, './../../public/templates/index.html'), {name: 'Enter a valid URL!'});
+    }
+    
     urlSchema.find({newURL: req.body.newURL}, (err, data)=>{
         if(err){
             throw err;
